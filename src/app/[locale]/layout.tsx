@@ -1,11 +1,15 @@
-import '../styles/globals.css';
-import '../styles/globals.scss';
+import '@/styles/globals.css';
+import '@/styles/globals.scss';
 
 import React from 'react';
 
+import type { TLocale } from '@/lib/constants/shared';
 import type { Metadata, Viewport } from 'next';
+import type { PropsWithChildren } from 'react';
 
 import config from '_config';
+import { routing } from 'i18n/routing';
+import { notFound } from 'next/navigation';
 
 import Footer from '@/components/footer';
 import GithubCorner from '@/components/github-corner';
@@ -24,7 +28,16 @@ export const viewport: Viewport = {
   themeColor: '#000'
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type TRootLayout = PropsWithChildren & {
+  params: Promise<{ locale: TLocale | undefined }>;
+};
+
+export default async function RootLayout({ params, children }: TRootLayout) {
+  const { locale } = await params;
+  if (!locale || !routing.locales.includes(locale)) {
+    return notFound();
+  }
+
   return (
     <html lang='en' suppressHydrationWarning>
       <body>
