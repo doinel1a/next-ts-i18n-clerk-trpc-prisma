@@ -1,5 +1,5 @@
-export type TLocale = (typeof locales)[keyof typeof locales];
-export const locales = {
+export type TLocale = (typeof locale)[keyof typeof locale];
+export const locale = {
   it: 'it',
   en: 'en'
 } as const;

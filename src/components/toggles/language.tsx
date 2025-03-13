@@ -18,7 +18,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { locales } from '@/lib/constants/shared';
+import { locale } from '@/lib/constants/shared';
 import { cn } from '@/lib/utils';
 
 import LucideIcon from '../icons/lucide';
@@ -32,8 +32,8 @@ export default function LanguageToggle({ className }: TLanguageToggle) {
 
   const router = useRouter();
   const pathname = usePathname();
-  const locale = useLocale();
-  const isItalian = useMemo(() => locale === locales.it, [locale]);
+  const currentLocale = useLocale();
+  const isItalian = useMemo(() => currentLocale === locale.it, [currentLocale]);
 
   const [isPending, startTransition] = useTransition();
   const onLanguageClick = useCallback(
@@ -62,11 +62,11 @@ export default function LanguageToggle({ className }: TLanguageToggle) {
         <DropdownMenuContent data-testid='language-dropdown-content'>
           <DropdownMenuLabel>{tToggle('title')}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem data-testid='language-en' onClick={() => onLanguageClick(locales.en)}>
+          <DropdownMenuItem data-testid='language-en' onClick={() => onLanguageClick(locale.en)}>
             <Icons.flags.english className='mr-2' />
             <span>English</span>
           </DropdownMenuItem>
-          <DropdownMenuItem data-testid='language-it' onClick={() => onLanguageClick(locales.it)}>
+          <DropdownMenuItem data-testid='language-it' onClick={() => onLanguageClick(locale.it)}>
             <Icons.flags.italian className='mr-2' />
             <span>Italiano</span>
           </DropdownMenuItem>
