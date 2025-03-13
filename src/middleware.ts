@@ -18,7 +18,9 @@ export default clerkMiddleware(
 
     return intlMiddleware(request);
   },
-  { /* debug: true, */ signUpUrl: route.signUp, signInUrl: route.signIn }
+  {
+    /* debug: true, */
+  }
 );
 
 export const config = {
