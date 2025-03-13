@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "home": {
+      "title": "Casa"
+    }
+  },
+  "commons": {
+    "loading": "Caricamento"
+  },
+  "components": {
+    "toggles": {
+      "language": {
+        "title": "Cambia lingua"
+      }
+    }
+  }
+}

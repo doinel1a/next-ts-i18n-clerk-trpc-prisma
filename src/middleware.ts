@@ -1,6 +1,10 @@
 /* eslint-disable unicorn/prefer-string-raw */
 
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { routing } from 'i18n/routing';
+import createMiddleware from 'next-intl/middleware';
+
+const intlMiddleware = createMiddleware(routing);
 
 const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)']);
 
@@ -9,6 +13,8 @@ export default clerkMiddleware(
     if (!isPublicRoute(request)) {
       await auth.protect(); // For api requests, it will return a 404 error if the user is not authed
     }
+
+    return intlMiddleware(request);
   }
   // , { debug: true }
 );

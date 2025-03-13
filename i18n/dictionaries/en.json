@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "home": {
+      "title": "Home"
+    }
+  },
+  "commons": {
+    "loading": "Loading"
+  },
+  "components": {
+    "toggles": {
+      "language": {
+        "title": "Toggle language"
+      }
+    }
+  }
+}

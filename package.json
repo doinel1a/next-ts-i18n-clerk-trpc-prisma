@@ -32,6 +32,7 @@
     "db-danger:reset": "prisma migrate reset --force"
   },
   "dependencies": {
+    "@clerk/localizations": "^3.12.0",
     "@clerk/nextjs": "^6.12.5",
     "@prisma/client": "^6.5.0",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
@@ -46,6 +47,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.479.0",
     "next": "15.2.2",
+    "next-intl": "^4.0.0",
     "next-themes": "^0.4.6",
     "react": "19.0.0",
     "react-dom": "19.0.0",
