@@ -8,5 +8,5 @@ import useGenerateClerkTheme from '@/hooks/clerk/use-generate-theme';
 
 export default function SignUp() {
   const theme = useGenerateClerkTheme();
-  return <Clerk_SignUp signInUrl={'/sign-up'} appearance={theme} />;
+  return <Clerk_SignUp appearance={theme} />;
 }

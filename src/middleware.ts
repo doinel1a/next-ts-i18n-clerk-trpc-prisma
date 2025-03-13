@@ -4,9 +4,11 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { routing } from 'i18n/routing';
 import createMiddleware from 'next-intl/middleware';
 
+import { route } from './lib/constants/routes';
+
 const intlMiddleware = createMiddleware(routing);
 
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)']);
+const isPublicRoute = createRouteMatcher([`${route.signUp}(.*)`, `${route.signIn}(.*)`]);
 
 export default clerkMiddleware(
   async (auth, request) => {
@@ -15,8 +17,8 @@ export default clerkMiddleware(
     }
 
     return intlMiddleware(request);
-  }
-  // , { debug: true }
+  },
+  { /* debug: true, */ signUpUrl: route.signUp, signInUrl: route.signIn }
 );
 
 export const config = {
