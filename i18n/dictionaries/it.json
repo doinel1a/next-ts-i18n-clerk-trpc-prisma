@@ -1,7 +1,13 @@
 {
   "pages": {
     "home": {
-      "title": "Casa"
+      "title": "Home"
+    },
+    "sign-up": {
+      "title": "Registrati"
+    },
+    "sign-in": {
+      "title": "Accedi"
     }
   },
   "commons": {

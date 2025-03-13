@@ -2,6 +2,12 @@
   "pages": {
     "home": {
       "title": "Home"
+    },
+    "sign-up": {
+      "title": "Sign up"
+    },
+    "sign-in": {
+      "title": "Sign in"
     }
   },
   "commons": {
