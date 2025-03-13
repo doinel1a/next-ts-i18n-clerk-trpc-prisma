@@ -2,8 +2,11 @@ import React from 'react';
 
 import dynamic from 'next/dynamic';
 
-import LanguageToggle from './toggles/language';
 import { Skeleton } from './ui/skeleton';
+
+const LanguageToggle = dynamic(() => import('./toggles/language'), {
+  loading: () => <Skeleton className='h-10 w-10 rounded-md' />
+});
 
 const ThemeToggle = dynamic(() => import('./toggles/theme'), {
   loading: () => <Skeleton className='h-10 w-10 rounded-md' />
