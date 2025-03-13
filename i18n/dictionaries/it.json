@@ -11,6 +11,12 @@
     "toggles": {
       "language": {
         "title": "Cambia lingua"
+      },
+      "theme": {
+        "title": "Cambia tema",
+        "light": "Chiaro",
+        "dark": "Scuro",
+        "system": "Sistema"
       }
     }
   }

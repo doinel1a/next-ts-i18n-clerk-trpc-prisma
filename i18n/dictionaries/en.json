@@ -11,6 +11,12 @@
     "toggles": {
       "language": {
         "title": "Toggle language"
+      },
+      "theme": {
+        "title": "Toggle theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
       }
     }
   }

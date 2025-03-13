@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import LanguageToggle from './toggles/language';
 import { Skeleton } from './ui/skeleton';
 
-const ThemeToggle = dynamic(() => import('./ui/theme-toggle'), {
+const ThemeToggle = dynamic(() => import('./toggles/theme'), {
   loading: () => <Skeleton className='h-10 w-10 rounded-md' />
 });
 
