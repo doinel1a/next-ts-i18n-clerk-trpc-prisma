@@ -11,7 +11,7 @@ import type { PropsWithChildren } from 'react';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
+import { httpBatchStreamLink, loggerLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import SuperJSON from 'superjson';
 
@@ -45,7 +45,7 @@ export function TRPCProvider({ children }: TTRPCProvider) {
             process.env.NODE_ENV === 'development' ||
             (op.direction === 'down' && op.result instanceof Error)
         }),
-        unstable_httpBatchStreamLink({
+        httpBatchStreamLink({
           transformer: SuperJSON,
           url: getBaseUrl() + '/api/trpc',
           headers: () => {
