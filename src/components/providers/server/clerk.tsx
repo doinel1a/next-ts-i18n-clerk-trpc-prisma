@@ -11,7 +11,7 @@ import { locale } from '@/lib/constants/shared';
 
 type TClerkProvider = PropsWithChildren;
 
-export default async function ClerkProvider({ children }: TClerkProvider) {
+export default async function ClerkProvider({ children }: Readonly<TClerkProvider>) {
   const currentLocale = await getLocale();
   const localization =
     currentLocale === locale.it

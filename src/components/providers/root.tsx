@@ -9,7 +9,7 @@ import I18nProvider from './server/i18n';
 
 type TRootProvider = PropsWithChildren;
 
-export default function RootProvider({ children }: TRootProvider) {
+export default function RootProvider({ children }: Readonly<TRootProvider>) {
   return (
     <I18nProvider>
       <ThemeProvider>

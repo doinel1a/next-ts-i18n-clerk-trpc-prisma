@@ -27,7 +27,7 @@ type TLanguageToggle = {
   className?: string;
 };
 
-export default function LanguageToggle({ className }: TLanguageToggle) {
+export default function LanguageToggle({ className }: Readonly<TLanguageToggle>) {
   const tToggle = useTranslations('components.toggles.language');
 
   const router = useRouter();
@@ -62,11 +62,21 @@ export default function LanguageToggle({ className }: TLanguageToggle) {
         <DropdownMenuContent data-testid='language-dropdown-content'>
           <DropdownMenuLabel>{tToggle('title')}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem data-testid='language-en' onClick={() => onLanguageClick(locale.en)}>
+          <DropdownMenuItem
+            data-testid='language-en'
+            onClick={() => {
+              onLanguageClick(locale.en);
+            }}
+          >
             <Icons.flags.english className='mr-2' />
             <span>English</span>
           </DropdownMenuItem>
-          <DropdownMenuItem data-testid='language-it' onClick={() => onLanguageClick(locale.it)}>
+          <DropdownMenuItem
+            data-testid='language-it'
+            onClick={() => {
+              onLanguageClick(locale.it);
+            }}
+          >
             <Icons.flags.italian className='mr-2' />
             <span>Italiano</span>
           </DropdownMenuItem>
@@ -90,7 +100,9 @@ function Loader({ isLoading }: TLoader) {
       document.body.classList.add('overflow-hidden');
     }
 
-    return () => document.body.classList.remove('overflow-hidden');
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
   }, [isLoading]);
 
   if (!isLoading) {

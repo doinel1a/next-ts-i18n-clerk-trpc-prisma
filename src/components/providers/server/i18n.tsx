@@ -7,7 +7,7 @@ import { getMessages } from 'next-intl/server';
 
 type TI18nProvider = PropsWithChildren;
 
-export default async function I18nProvider({ children }: TI18nProvider) {
+export default async function I18nProvider({ children }: Readonly<TI18nProvider>) {
   const messages = await getMessages();
   return <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
 }

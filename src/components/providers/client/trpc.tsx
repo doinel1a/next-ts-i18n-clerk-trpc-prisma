@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable sonarjs/no-nested-assignment */
 /* eslint-disable unicorn/prefer-global-this */
 
 'use client';
@@ -34,7 +36,7 @@ export type RouterOutputs = inferRouterOutputs<AppRouter>;
 
 type TTRPCProvider = PropsWithChildren;
 
-export function TRPCProvider({ children }: TTRPCProvider) {
+export function TRPCProvider({ children }: Readonly<TTRPCProvider>) {
   const queryClient = getQueryClient();
 
   const [trpcClient] = useState(() =>

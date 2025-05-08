@@ -54,19 +54,25 @@ export default function ThemeToggle() {
           icon='Sun'
           label={tToggle(theme.light)}
           dataTestid='theme-light'
-          onClick={() => onThemeClick(theme.light)}
+          onClick={() => {
+            onThemeClick(theme.light);
+          }}
         />
         <MenuItem
           icon='MoonStar'
           label={tToggle(theme.dark)}
           dataTestid='theme-dark'
-          onClick={() => onThemeClick(theme.dark)}
+          onClick={() => {
+            onThemeClick(theme.dark);
+          }}
         />
         <MenuItem
           icon='Laptop'
           label={tToggle(theme.system)}
           dataTestid='theme-system'
-          onClick={() => onThemeClick(theme.system)}
+          onClick={() => {
+            onThemeClick(theme.system);
+          }}
         />
       </DropdownMenuContent>
     </DropdownMenu>
@@ -80,7 +86,7 @@ type TMenuItem = {
   onClick: () => void;
 };
 
-function MenuItem({ icon, label, dataTestid, onClick }: TMenuItem) {
+function MenuItem({ icon, label, dataTestid, onClick }: Readonly<TMenuItem>) {
   return (
     <DropdownMenuItem data-testid={dataTestid} onClick={onClick}>
       <LucideIcon name={icon} className='mr-2' />
