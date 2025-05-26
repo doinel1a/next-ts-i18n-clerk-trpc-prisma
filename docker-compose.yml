@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:latest
+    image: postgres:17
     container_name: db
     environment:
       POSTGRES_DB: db_v1
@@ -14,7 +14,7 @@ services:
       - db_network
 
   db_shadow:
-    image: postgres:latest
+    image: postgres:17
     container_name: db_shadow
     environment:
       POSTGRES_DB: db_v1_shadow
@@ -28,7 +28,7 @@ services:
       - db_network
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:9.3
     container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
