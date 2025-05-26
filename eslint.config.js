@@ -63,7 +63,15 @@ export default tseslint.config(
   },
   {
     rules: {
-      'unicorn/no-null': 'off'
+      'unicorn/no-null': 'off',
+      'unicorn/prevent-abbreviations': [
+        'error',
+        {
+          allowList: {
+            env: true
+          }
+        }
+      ]
     }
   }
 );
