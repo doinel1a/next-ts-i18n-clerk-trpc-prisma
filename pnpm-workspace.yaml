@@ -1,7 +1,9 @@
 onlyBuiltDependencies:
+  - '@clerk/shared'
   - '@parcel/watcher'
   - '@prisma/client'
   - '@prisma/engines'
+  - '@tailwindcss/oxide'
   - esbuild
   - prisma
   - sharp
