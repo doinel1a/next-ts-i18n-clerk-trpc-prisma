@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import React, { useCallback } from 'react';
 
 import type { TTheme } from '@/lib/constants/shared';
 import type { TLucideIconName } from '../icons/lucide';
@@ -25,7 +25,7 @@ export default function ThemeToggle() {
   const tToggle = useTranslations('components.toggles.theme');
 
   const { setTheme } = useTheme();
-  const onThemeClick = React.useCallback(
+  const onThemeClick = useCallback(
     (theme: TTheme) => {
       setTheme(theme);
     },
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
         <MenuItem
           icon='Sun'
           label={tToggle(theme.light)}
-          dataTestid='theme-light'
+          dataTestId='theme-light'
           onClick={() => {
             onThemeClick(theme.light);
           }}
@@ -61,7 +61,7 @@ export default function ThemeToggle() {
         <MenuItem
           icon='MoonStar'
           label={tToggle(theme.dark)}
-          dataTestid='theme-dark'
+          dataTestId='theme-dark'
           onClick={() => {
             onThemeClick(theme.dark);
           }}
@@ -69,7 +69,7 @@ export default function ThemeToggle() {
         <MenuItem
           icon='Laptop'
           label={tToggle(theme.system)}
-          dataTestid='theme-system'
+          dataTestId='theme-system'
           onClick={() => {
             onThemeClick(theme.system);
           }}
@@ -82,13 +82,13 @@ export default function ThemeToggle() {
 type TMenuItem = {
   icon: TLucideIconName;
   label: string;
-  dataTestid: string;
+  dataTestId: string;
   onClick: () => void;
 };
 
-function MenuItem({ icon, label, dataTestid, onClick }: Readonly<TMenuItem>) {
+function MenuItem({ icon, label, dataTestId, onClick }: Readonly<TMenuItem>) {
   return (
-    <DropdownMenuItem data-testid={dataTestid} onClick={onClick}>
+    <DropdownMenuItem data-testid={dataTestId} onClick={onClick}>
       <LucideIcon name={icon} className='mr-2' />
       <span>{label}</span>
     </DropdownMenuItem>

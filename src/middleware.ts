@@ -13,7 +13,7 @@ const isPublicRoute = createRouteMatcher([`${route.signUp}(.*)`, `${route.signIn
 export default clerkMiddleware(
   async (auth, request) => {
     if (!isPublicRoute(request)) {
-      await auth.protect(); // For api requests, it will return a 404 error if the user is not authed
+      await auth.protect(); // For API routes, it will return a 404 error, if the user is not authed
     }
 
     return intlMiddleware(request);

@@ -19,15 +19,10 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { locale } from '@/lib/constants/shared';
-import { cn } from '@/lib/utils';
 
 import LucideIcon from '../icons/lucide';
 
-type TLanguageToggle = {
-  className?: string;
-};
-
-export default function LanguageToggle({ className }: Readonly<TLanguageToggle>) {
+export default function LanguageToggle() {
   const tToggle = useTranslations('components.toggles.language');
 
   const router = useRouter();
@@ -49,12 +44,7 @@ export default function LanguageToggle({ className }: Readonly<TLanguageToggle>)
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            data-testid='language-toggle'
-            variant='outline'
-            size='icon'
-            className={cn(className)}
-          >
+          <Button data-testid='language-toggle' variant='outline' size='icon'>
             {isItalian ? <Icons.flags.italian /> : <Icons.flags.english />}
             <span className='sr-only'>{tToggle('title')}</span>
           </Button>
