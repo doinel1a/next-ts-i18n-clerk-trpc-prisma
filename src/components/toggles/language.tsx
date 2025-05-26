@@ -6,6 +6,7 @@ import type { TLocale } from '@/lib/constants/shared';
 
 import { usePathname, useRouter } from 'i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
 import Icons from '@/components/icons/custom';
@@ -27,6 +28,7 @@ export default function LanguageToggle() {
 
   const router = useRouter();
   const pathname = usePathname();
+  const searchParameters = useSearchParams();
   const currentLocale = useLocale();
   const isItalian = useMemo(() => currentLocale === locale.it, [currentLocale]);
 
@@ -34,10 +36,15 @@ export default function LanguageToggle() {
   const onLanguageClick = useCallback(
     (locale: TLocale) => {
       startTransition(() => {
-        router.replace(pathname, { locale });
+        const query: Record<string, string> = {};
+        for (const [key, value] of searchParameters.entries()) {
+          query[key] = value;
+        }
+
+        router.replace({ pathname, query }, { locale });
       });
     },
-    [router, pathname]
+    [router, pathname, searchParameters]
   );
 
   return (
