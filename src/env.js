@@ -9,8 +9,8 @@ export const env = createEnv({
    */
   client: {
     // NEXT_PUBLIC_CLIENT_VAR: z.string(),
-    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string(),
     NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string(),
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string(),
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string()
   },
   /**
