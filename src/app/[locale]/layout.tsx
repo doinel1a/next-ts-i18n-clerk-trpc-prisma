@@ -38,7 +38,7 @@ export default async function RootLayout({ params, children }: TRootLayout) {
   }
 
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body>
         <RootProvider>
           <div className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
