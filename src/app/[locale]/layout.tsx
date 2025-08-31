@@ -3,7 +3,6 @@ import '@/styles/globals.scss';
 
 import React from 'react';
 
-import type { TLocale } from '@/lib/constants/shared';
 import type { Metadata, Viewport } from 'next';
 import type { PropsWithChildren } from 'react';
 
@@ -28,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 type TRootLayout = PropsWithChildren & {
-  params: Promise<{ locale: TLocale | undefined }>;
+  params: Promise<{ locale: string | undefined }>;
 };
 
 export default async function RootLayout({ params, children }: TRootLayout) {
